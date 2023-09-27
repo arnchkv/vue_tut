@@ -69,6 +69,14 @@ const updatePost = async () => {
 const cancelEdit = () => {
     return true;
 }
+
+const deletePost = async(id) => {
+    await fetch(`${API_URL}/${id}`, {
+        method: "DELETE"
+    })
+
+    posts.value = posts.value.filter(post => post.id !== id)
+}
 </script>
 
 
