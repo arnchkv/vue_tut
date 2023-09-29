@@ -12,13 +12,24 @@
         <button v-else @click="createPost">Create</button>
 
         <!-- list posts -->
-        <div v-for="post in posts" :key="post.id">
-            <h5>[{{ post.id }}] {{ post.title }}</h5>
-            <p>{{ post.body }}</p>
-
-            <button @click="editPost(post.id)">Edit</button>
-            <button @click="deletePost(post.id)">Delete</button>
-        </div>
+        <table>
+            {{ index = 0 }}
+            <div v-for="post in posts" :key="post.id">
+                <tr>
+                    <td>{{ ++index }}</td>
+                    <td>
+                        <h5>[{{ post.id }}] {{ post.title }}</h5>
+                    </td>
+                    <td>
+                        <p>{{ post.body }}</p>
+                    </td>
+                    <td>
+                        <button @click="editPost(post.id)">Edit</button>
+                        <button @click="deletePost(post.id)">Delete</button>
+                    </td>
+                </tr>
+            </div>
+        </table>
     </div>
 </template>
 
@@ -138,5 +149,15 @@ const editPost = async (id) => {
     color: #111;
     border-radius: 4px;
     resize: vertical;
+}
+
+table {
+    text-align: center;
+}
+
+td {
+    border-style: dashed;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 </style>
