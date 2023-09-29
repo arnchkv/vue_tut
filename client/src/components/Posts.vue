@@ -12,8 +12,7 @@
         <button v-else @click="createPost">Create</button>
 
         <!-- list posts -->
-        <table>
-            {{ index = 0 }}
+        <table :set="index = 0">
             <div v-for="post in posts" :key="post.id">
                 <tr>
                     <td>{{ ++index }}</td>
